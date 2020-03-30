@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="0">
+        <!-- Form -->
+        <record id="view_vehicle_form" model="ir.ui.view">
+            <field name="name">vehicle.form.view</field>
+            <field name="model">taller.vehiculo</field>
+            <field name="arch" type="xml">
+                <form string="Vehiculo Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="matricula"/>
+                            <field name="color_id"/>
+                            <field name="tipo_vehiculo_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Tree -->
+        <record id="view_vehicle_tree" model="ir.ui.view">
+            <field name="name">vehicle.tree.view</field>
+            <field name="model">taller.vehiculo</field>
+            <field name="arch" type="xml">
+                <tree string="Vehiculo Tree">
+                    <field name="name"/>
+                    <field name="active"/>
+                    <field name="matricula"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Accion-->
+        <record id="action_vehicle_view" model="ir.actions.act_window">
+            <field name="name">Vehiculos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">taller.vehiculo</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menús-->
+        <menuitem
+                id="menu_taller_root"
+                name="Taller"
+                sequence="1"
+                web_icon="taller,static/description/icon.png"/>
+        <menuitem
+                id="action_menu_item"
+                name="Vehiculos"
+                action="action_vehicle_view"
+                parent="menu_taller_root"
+                sequence="1"/>
+
+    </data>
+</odoo>

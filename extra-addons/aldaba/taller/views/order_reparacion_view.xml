@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="0">
+        <!-- Form -->
+        <record id="view_order_reparacion_form" model="ir.ui.view">
+            <field name="name">order_reparacion.form.view</field>
+            <field name="model">taller.order.reparacion</field>
+            <field name="arch" type="xml">
+                <form string="Orden Reparación Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="partner_id"/>
+                        </group>
+                        <notebook>
+                            <page string="Lineas Reparación" name="reparacion_line_ids">
+                                <field name="reparacion_line_ids">
+                                  <tree>
+                                    <field name="name"></field>
+                                    <field name="vehiculo_id"></field>
+                                  </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Tree -->
+        <record id="view_order_reparacion_tree" model="ir.ui.view">
+            <field name="name">order_reparacion.tree.view</field>
+            <field name="model">taller.order.reparacion</field>
+            <field name="arch" type="xml">
+                <tree string="Orden Reparación Tree">
+                    <field name="name"/>
+                    <field name="active" widget="boolean_toggle"/>
+                    <field name="partner_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Accion-->
+        <record id="action_order_reparacion_view" model="ir.actions.act_window">
+            <field name="name">Órdenes Reparación</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">taller.order.reparacion</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menús-->
+        <menuitem
+                id="action_menu_item_order_reparacion"
+                name="Órdenes Reparación"
+                action="action_order_reparacion_view"
+                parent="taller.menu_taller_root"
+                sequence="1"/>
+
+    </data>
+</odoo>

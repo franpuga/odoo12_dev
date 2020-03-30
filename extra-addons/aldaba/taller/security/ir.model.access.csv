@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_taller_vehiculo,access_taller_vehiculo,model_taller_vehiculo,base.group_user,1,1,1,0
+access_taller_order_reparacion,access_order_reparacion,model_taller_order_reparacion,base.group_user,1,1,1,0
+access_taller_order_reparacion_line,access_order_reparacion_line,model_taller_order_reparacion_line,base.group_user,1,1,1,0
+access_taller_vehiculo_color,access_taller_vehiculo_color,model_taller_vehiculo_color,base.group_user,1,1,1,0
+access_taller_vehiculo_tipo,access_taller_vehiculo_tipo,model_taller_vehiculo_tipo,base.group_user,1,1,1,0
