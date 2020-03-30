@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import api, models, fields, exceptions
 
 
 class Vehiculo(models.Model):
@@ -12,6 +12,14 @@ class Vehiculo(models.Model):
     matricula = fields.Char('Matricula')
     color_id = fields.Many2one(comodel_name="taller.vehiculo.color")
     tipo_vehiculo_id = fields.Many2one(comodel_name="taller.vehiculo.tipo")
+
+    @api.constrains('matricula')
+    def _check_matricula(self):
+        domain = [('matricula', '=', self.matricula),
+                  ('id', '!=', self.id)]
+        vehiculos = self.search(domain)
+        if vehiculos:
+            raise exceptions.ValidationError("Matrícula Duplicada")
 
 
 class Color(models.Model):
