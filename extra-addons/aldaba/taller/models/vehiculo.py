@@ -12,6 +12,7 @@ class Vehiculo(models.Model):
     matricula = fields.Char('Matricula')
     color_id = fields.Many2one(comodel_name="taller.vehiculo.color")
     tipo_vehiculo_id = fields.Many2one(comodel_name="taller.vehiculo.tipo")
+    tags_ids = fields.Many2many(comodel_name="taller.vehiculo.tag")
 
     @api.constrains('matricula')
     def _check_matricula(self):
@@ -20,6 +21,13 @@ class Vehiculo(models.Model):
         vehiculos = self.search(domain)
         if vehiculos:
             raise exceptions.ValidationError("Matrícula Duplicada")
+
+    @api.model
+    def default_get(self, fields_list):
+        res = super(Vehiculo, self).default_get(fields_list)
+
+        res.update({'tipo_vehiculo_id': 1})
+        return res
 
 
 class Color(models.Model):
@@ -36,3 +44,8 @@ class Tipo(models.Model):
     name = fields.Char(string='Name', required=True, help="Introduzca el nombre",
                        default="Nuevo Tipo Vehiculo")
     active = fields.Boolean(string='Activo', default='1')
+
+
+class VehiculoTag(models.Model):
+    _name = 'taller.vehiculo.tag'
+    name = fields.Char(string='Name')

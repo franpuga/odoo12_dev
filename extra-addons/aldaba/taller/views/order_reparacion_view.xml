@@ -7,10 +7,19 @@
             <field name="model">taller.order.reparacion</field>
             <field name="arch" type="xml">
                 <form string="Orden Reparación Form">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done,cancel"/>
+                        <button name="confirm" string="Confirmar" class="oe_highlight" type="object"
+                        attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                        <button name="cancel" string="Cancelar" class="oe_grey" type="object"
+                        attrs="{'invisible': [('state', 'in',('draft','cancel'))]}"/>
+                        <button name="done" string="Terminar " class="oe_highlight" type="object"
+                        attrs="{'invisible': [('state', '!=', 'confirm')]}"/>
+                    </header>
                     <sheet>
                         <group>
                             <h2>
-                                <field name="name" readonly="Truegit gui"/>
+                                <field name="name" readonly="True"/>
                             </h2>
                         </group>
                         <group>

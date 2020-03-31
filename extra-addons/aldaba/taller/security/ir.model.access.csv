@@ -4,3 +4,4 @@ access_taller_order_reparacion,access_order_reparacion,model_taller_order_repara
 access_taller_order_reparacion_line,access_order_reparacion_line,model_taller_order_reparacion_line,base.group_user,1,1,1,1
 access_taller_vehiculo_color,access_taller_vehiculo_color,model_taller_vehiculo_color,base.group_user,1,1,1,1
 access_taller_vehiculo_tipo,access_taller_vehiculo_tipo,model_taller_vehiculo_tipo,base.group_user,1,1,1,1
+access_taller_vehiculo_tag,access_taller_vehiculo_tag,model_taller_vehiculo_tag,base.group_user,1,1,1,1

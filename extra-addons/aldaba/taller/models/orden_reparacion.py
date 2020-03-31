@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, models, fields
+from odoo import api, models, fields, exceptions
 
 
 class OrdenReparacion(models.Model):
@@ -13,6 +13,13 @@ class OrdenReparacion(models.Model):
     reparacion_line_ids = fields.One2many(comodel_name='taller.order.reparacion.line',
                                           inverse_name='reparacion_id',
                                           string='Lineas Reparación')
+    state = fields.Selection([
+        ('draft', 'Nuevo'),
+        ('confirm', 'Confirmado'),
+        ('done', 'Realizado'),
+        ('cancel', 'Cancelado'),
+    ], string='Estado', readonly=True, index=True, copy=False,
+        default='draft', tracking=True)
 
     @api.model
     def create(self, vals):
@@ -21,6 +28,15 @@ class OrdenReparacion(models.Model):
         vals.update(name=new_seq_name)
         res = super(OrdenReparacion, self).create(vals)
         return res
+
+    def confirm(self):
+        self.write({'state': 'confirm'})
+
+    def cancel(self):
+        self.write({'state': 'cancel'})
+
+    def done(self):
+        self.write({'state': 'done'})
 
 
 class OrderReparacionLine(models.Model):

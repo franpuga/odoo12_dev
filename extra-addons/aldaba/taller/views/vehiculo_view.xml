@@ -17,6 +17,9 @@
                             <field name="color_id"/>
                             <field name="tipo_vehiculo_id"/>
                         </group>
+                        <group>
+                            <field name="tags_ids" widget="many2many_tags" nolabel="1"/>
+                        </group>
                     </sheet>
                 </form>
             </field>
