@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <template id="custom_layout_footer">
+            <t t-call="taller.footer"></t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <template id="informe_vehiculo">
+            <t t-call="web.html_container">
+                <t t-call="taller.custom_layout_header"></t>
+                <div class="page">
+                    <h2>Informe Vehículo</h2>
+                    <t t-foreach="docs" t-as="o">
+                        <span t-field="o.name"/>
+                    </t>
+                </div>
+                <t t-call="taller.custom_layout_footer"></t>
+            </t>
+        </template>
+    </data>
+</odoo>
