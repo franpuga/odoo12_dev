@@ -31,8 +31,6 @@
         'report/informe_vehiculo.xml',
         'report/custom_layout_header.xml',
         'report/custom_layout_footer.xml',
-        'report/header.xml',
-        'report/footer.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

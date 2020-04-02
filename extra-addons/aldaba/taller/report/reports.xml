@@ -3,14 +3,14 @@
     <data noupdate="0">
         <!-- QWeb Reports -->
         <!-- NAME & FILE_NAME should be the same -->
-                <report
-                    id="vehiculo_report"
-                    model="taller.vehiculo"
-                    report_type="qweb-pdf"
-                    string="Informe Vehículo"
-                    menu="True"
-                    name="taller.informe_vehiculo"
-                    file="taller.informe_vehiculo"
-                />
+        <report
+                id="vehiculo_report"
+                model="taller.vehiculo"
+                report_type="qweb-pdf"
+                string="Informe Vehículo"
+                menu="True"
+                name="taller.informe_vehiculo"
+                file="taller.informe_vehiculo"
+        />
     </data>
 </odoo>

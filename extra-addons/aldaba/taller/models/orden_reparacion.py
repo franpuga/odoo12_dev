@@ -41,6 +41,7 @@ class OrdenReparacion(models.Model):
 
 class OrderReparacionLine(models.Model):
     _name = 'taller.order.reparacion.line'
+    _description = 'Líneas Órden Reparación'
 
     name = fields.Char(string='Name', required=True, help="Introduzca el nombre",
                        default="Nueva Linea Orden Reparación")

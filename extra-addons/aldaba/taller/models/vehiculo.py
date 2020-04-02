@@ -5,7 +5,7 @@ from odoo import api, models, fields, exceptions
 
 class Vehiculo(models.Model):
     _name = 'taller.vehiculo'
-    _decription = 'Gestión Vehículos'
+    _description = 'Gestión Vehículos'
 
     name = fields.Char(string='Name', required=True, help="Introduzca el nombre", default="Nuevo Vehiculo")
     active = fields.Boolean(string='Activo', default='1')
@@ -48,4 +48,5 @@ class Tipo(models.Model):
 
 class VehiculoTag(models.Model):
     _name = 'taller.vehiculo.tag'
+    _description = 'Tags Vehículos'
     name = fields.Char(string='Name')
