@@ -6,7 +6,7 @@
         <report
                 id="vehiculo_report"
                 model="taller.vehiculo"
-                report_type="qweb-pdf"
+                report_type="qweb-html"
                 string="Informe Vehículo"
                 menu="True"
                 name="taller.informe_vehiculo"
